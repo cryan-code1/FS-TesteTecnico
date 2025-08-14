@@ -7,7 +7,7 @@ Implementar melhorias no sistema `FI.WebAtividadeEntrevista` para avaliação t�
 - Visual Studio 2022 (Community aceita)
 - .NET Framework 4.8
 - SQL Server Express 2019 LocalDB  
-- Solution: [Download](http://atende.funcao.com.br/download/FI.WebAtividadeEntrevista.zip)
+- Solution: Baixe o repositorio como .zip.
 
 ## Implementações
 

@@ -128,7 +128,6 @@ namespace FI.AtividadeEntrevista.DAL
             base.Executar("FI_SP_AltCliente", parametros);
         }
 
-
         /// <summary>
         /// Excluir Cliente
         /// </summary>

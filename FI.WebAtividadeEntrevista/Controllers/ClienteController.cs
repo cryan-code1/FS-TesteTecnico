@@ -230,9 +230,7 @@ namespace WebAtividadeEntrevista.Controllers
                 if (beneficiarioList != null && beneficiarioList.Count > 0)
                     throw new Exception(string.Format("Não é possível excluir, existem beneficiarios vinculados ao cliente"));
 
-                BoCliente boCliente = new BoCliente();
-
-                boCliente.Excluir(id);
+                new BoCliente().Excluir(id);
 
                 return Json("Cliente excluído com sucesso!");
             }
@@ -249,9 +247,7 @@ namespace WebAtividadeEntrevista.Controllers
         {
             try
             {
-                BoBeneficiario boBeneficiario = new BoBeneficiario();
-
-                boBeneficiario.Excluir(id);
+                new BoBeneficiario().Excluir(id);
 
                 return Json("Beneficiario excluído com sucesso!");
             }

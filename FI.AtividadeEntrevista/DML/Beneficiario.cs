@@ -10,16 +10,16 @@
         /// <summary>
         /// Id
         /// </summary>
-        public long ClienteId { get; set; }
-
-        /// <summary>
-        /// Id
-        /// </summary>
         public string Nome { get; set; }
 
         /// <summary>
         /// Id
         /// </summary>
         public string CPF { get; set; }
+
+        /// <summary>
+        /// Id
+        /// </summary>
+        public long ClienteId { get; set; }
     }
 }

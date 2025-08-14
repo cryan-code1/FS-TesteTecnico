@@ -49,11 +49,12 @@ namespace FI.AtividadeEntrevista.DAL.Beneficiarios
         /// <param name="beneficiario">Objeto de beneficiario</param>
         internal void Alterar(Beneficiario beneficiario)
         {
-            List<SqlParameter> parametros = new List<SqlParameter>();
-
-            parametros.Add(new SqlParameter("Nome", beneficiario.Nome));
-            parametros.Add(new SqlParameter("CPF", beneficiario.CPF));
-            parametros.Add(new SqlParameter("Id", beneficiario.Id));
+            List<SqlParameter> parametros = new List<SqlParameter>
+            {
+                new SqlParameter("Nome", beneficiario.Nome),
+                new SqlParameter("CPF", beneficiario.CPF),
+                new SqlParameter("Id", beneficiario.Id)
+            };
 
             base.Executar("FI_SP_AltBeneficiario", parametros);
         }
@@ -77,11 +78,13 @@ namespace FI.AtividadeEntrevista.DAL.Beneficiarios
             {
                 foreach (DataRow row in ds.Tables[0].Rows)
                 {
-                    Beneficiario beneficiario = new Beneficiario();
-                    beneficiario.Id = row.Field<long>("Id");
-                    beneficiario.ClienteId = row.Field<long>("IdCliente");
-                    beneficiario.Nome = row.Field<string>("Nome");
-                    beneficiario.CPF = row.Field<string>("CPF");
+                    Beneficiario beneficiario = new Beneficiario
+                    {
+                        Id = row.Field<long>("Id"),
+                        ClienteId = row.Field<long>("IdCliente"),
+                        Nome = row.Field<string>("Nome"),
+                        CPF = row.Field<string>("CPF")
+                    };
 
                     lista.Add(beneficiario);
                 }

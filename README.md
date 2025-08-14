@@ -1,64 +1,28 @@
-Teste Prático – Vaga de Desenvolvedor
-Este repositório contém a solução desenvolvida para o teste prático técnico para avaliação de conhecimentos na vaga de desenvolvedor.
+# Teste Prático - Processo Seletivo
 
-Requisitos Técnicos
-Visual Studio 2022 (preferencialmente com os seguintes pacotes instalados):
+## Objetivo
+Implementar melhorias no sistema `FI.WebAtividadeEntrevista` para avaliação técnica.
 
-Pacote de direcionamento do .NET Framework 4.8
+## Requisitos
+- Visual Studio 2022 (Community aceita)
+- .NET Framework 4.8
+- SQL Server Express 2019 LocalDB  
+- Solution: [Download](http://atende.funcao.com.br/download/FI.WebAtividadeEntrevista.zip)
 
-SDK do .NET Framework 4.8
+## Implementações
 
-SQL Server Express 2019 LocalDB
+### 1. Campo CPF no Cliente
+- Adicionar campo **CPF** (formato `999.999.999-99`) no cadastro/edição.
+- Obrigatório, validar CPF, não permitir duplicados.
+- Alterar tabela `CLIENTES` para incluir `CPF`.
 
-Funcionalidades Implementadas
-1. Campo CPF para Cliente
-Adição do campo CPF na tela de cadastro/edição de clientes.
+### 2. Botão Beneficiários
+- Adicionar botão que abre modal para gerenciar beneficiários (CPF e Nome).
+- Grid com inclusão, edição e exclusão.
+- Validar CPF e impedir duplicados por cliente.
+- Criar tabela `BENEFICIARIOS` (`ID`, `CPF`, `NOME`, `IDCLIENTE`).
 
-Formatação aplicada no padrão 999.999.999-99.
-
-Validação de CPF (verificação de dígitos verificadores).
-
-Preenchimento obrigatório.
-
-Verificação de unicidade: não permite CPF duplicado no banco.
-
-Alteração do banco de dados: adição do campo CPF na tabela CLIENTES.
-
-2. Cadastro de Beneficiários
-Inclusão do botão Beneficiários na tela de clientes.
-
-Abertura de um pop-up para inclusão e manutenção dos beneficiários.
-
-Campos no pop-up:
-
-CPF do beneficiário (com validação e formatação)
-
-Nome do beneficiário
-
-Grid com lista de beneficiários vinculados ao cliente.
-
-Funcionalidades de adicionar, editar e excluir beneficiários.
-
-Validação para impedir beneficiários com CPF repetido para o mesmo cliente.
-
-Os beneficiários são salvos no banco ao confirmar o cadastro do cliente.
-
-Alteração do banco de dados: criação da tabela BENEFICIARIOS com os campos:
-
-ID
-
-CPF
-
-NOME
-
-IDCLIENTE
-
-Banco de Dados
-A base de dados utilizada está localizada no diretório App_Data da aplicação. A estrutura foi adaptada conforme os requisitos, com os seguintes ajustes:
-
-Tabela CLIENTES: adicionado campo CPF.
-
-Tabela BENEFICIARIOS: criada para relacionar beneficiários aos clientes.
-
-Considerações Finais
-Este projeto foi desenvolvido com foco em clareza, organização e aderência aos padrões do sistema base. Todas as validações de CPF seguem os critérios estabelecidos no teste, garantindo integridade e consistência dos dados.
+## Execução
+1. Abrir a solution no Visual Studio.
+2. Restaurar pacotes, compilar e executar.
+3. Testar na aba **Clientes**.

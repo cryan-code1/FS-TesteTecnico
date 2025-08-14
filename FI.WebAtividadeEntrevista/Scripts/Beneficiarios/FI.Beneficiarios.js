@@ -31,7 +31,7 @@ $(document).ready(function () {
         const id = parseInt(linha.find('td:eq(0)').text());
 
         if (id > 0) {
-            if (confirm("Deseja realmente excluir este beneficiário?")) {
+            if (confirm("Deseja realmente excluir este beneficiario?")) {
                 $.ajax({
                     url: '/Cliente/DeletarBeneficiario',
                     method: 'POST',

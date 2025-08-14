@@ -51,15 +51,6 @@ namespace FI.AtividadeEntrevista.BLL
         /// <summary>
         /// Lista os clientes
         /// </summary>
-        public List<Cliente> Listar()
-        {
-            DaoCliente cli = new DaoCliente();
-            return cli.Listar();
-        }
-
-        /// <summary>
-        /// Lista os clientes
-        /// </summary>
         public List<Cliente> Pesquisa(int iniciarEm, int quantidade, string campoOrdenacao, bool crescente, out int qtd)
         {
             DaoCliente cli = new DaoCliente();
@@ -67,7 +58,7 @@ namespace FI.AtividadeEntrevista.BLL
         }
 
         /// <summary>
-        /// VerificaExistencia
+        /// Verifica existencia de CPF no banco
         /// </summary>
         /// <param name="CPF"></param>
         /// <returns></returns>

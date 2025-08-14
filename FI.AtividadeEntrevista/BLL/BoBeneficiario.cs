@@ -31,8 +31,7 @@ namespace FI.AtividadeEntrevista.BLL
         /// <param name="beneficiario">Objeto de beneficiario</param>
         public void Alterar(Beneficiario beneficiario)
         {
-            DaoBeneficiario daoBeneficiario = new DaoBeneficiario();
-            daoBeneficiario.Alterar(beneficiario);
+            new DaoBeneficiario().Alterar(beneficiario);
         }
 
         /// <summary>
@@ -42,8 +41,7 @@ namespace FI.AtividadeEntrevista.BLL
         /// <returns></returns>
         public void Excluir(long id)
         {
-            DaoBeneficiario daoBeneficiario = new DaoBeneficiario();
-            daoBeneficiario.Excluir(id);
+            new DaoBeneficiario().Excluir(id);
         }
     }
 }

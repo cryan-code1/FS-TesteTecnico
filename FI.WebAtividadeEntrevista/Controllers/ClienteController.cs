@@ -43,7 +43,7 @@ namespace WebAtividadeEntrevista.Controllers
                 List<string> cpfsRepetidos = model.Beneficiarios.GroupBy(x => x.CPF).Where(y => y.Count() > 1).Select(z => z.Key).ToList();
 
                 if (cpfsRepetidos.Any())
-                    throw new Exception($"Existem beneficiários com o mesmo CPF: {string.Join(", ", cpfsRepetidos)}");
+                    throw new Exception($"Existem beneficiarios com o mesmo CPF: {string.Join(", ", cpfsRepetidos)}");
 
                 Cliente cliente = new Cliente()
                 {
@@ -73,7 +73,8 @@ namespace WebAtividadeEntrevista.Controllers
                         Beneficiario beneficiario = new Beneficiario()
                         {
                             Nome = beneficiarioModel.Nome,
-                            CPF = beneficiarioModel.CPF
+                            CPF = beneficiarioModel.CPF,
+                            ClienteId = model.Id
                         };
 
                         beneficiario.Id = boBeneficiario.Incluir(beneficiario);
@@ -107,7 +108,7 @@ namespace WebAtividadeEntrevista.Controllers
                 List<string> cpfsRepetidos = model.Beneficiarios.GroupBy(x => x.CPF).Where(y => y.Count() > 1).Select(z => z.Key).ToList();
 
                 if (cpfsRepetidos.Any())
-                    throw new Exception($"Existem beneficiários com o mesmo CPF: {string.Join(", ", cpfsRepetidos)}");
+                    throw new Exception($"Existem beneficiarios com o mesmo CPF: {string.Join(", ", cpfsRepetidos)}");
 
                 BoBeneficiario boBeneficiario = new BoBeneficiario();
 
@@ -116,7 +117,7 @@ namespace WebAtividadeEntrevista.Controllers
                 foreach (Beneficiario beneficiario in beneficiarioList)
                 {
                     if (model.Beneficiarios.Find(x => x.CPF == beneficiario.CPF && x.Id != beneficiario.Id) != null)
-                        throw new Exception(string.Format("Beneficiário de CPF: {0} já está cadastrado para este cliente!", beneficiario.CPF));
+                        throw new Exception(string.Format("Beneficiario de CPF: {0} já está cadastrado para este cliente!", beneficiario.CPF));
                 }
 
                 Cliente cliente = new Cliente()
@@ -227,7 +228,7 @@ namespace WebAtividadeEntrevista.Controllers
                 List<Beneficiario> beneficiarioList = new BoBeneficiario().ListarPorCliente(id);
 
                 if (beneficiarioList != null && beneficiarioList.Count > 0)
-                    throw new Exception(string.Format("Não é possível excluir, existem beneficiários vinculados ao cliente"));
+                    throw new Exception(string.Format("Não é possível excluir, existem beneficiarios vinculados ao cliente"));
 
                 BoCliente boCliente = new BoCliente();
 
@@ -252,13 +253,13 @@ namespace WebAtividadeEntrevista.Controllers
 
                 boBeneficiario.Excluir(id);
 
-                return Json("Beneficiário excluído com sucesso!");
+                return Json("Beneficiario excluído com sucesso!");
             }
             catch (Exception ex)
             {
                 Response.StatusCode = 400;
 
-                return Json(string.Format("Não foi possível deletar o beneficiário: {0}", ex.Message));
+                return Json(string.Format("Não foi possível deletar o beneficiario: {0}", ex.Message));
             }
         }
 
